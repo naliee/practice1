@@ -10,6 +10,10 @@ f = open(filename, "w", encoding="utf-8-sig", newline="")    # newline - 따로 
 writer = csv.writer(f)
 
 # 컬럼 타이틀 넣기
+        #웹페이지에서 타이틀 복붙. string.split(구분자) -> 구분자로 스트링을 나눠 list형태로 저장
+title = "N	종목명	현재가	전일비	등락률	액면가	거래량	시가총액	매출액	PER	ROE".split("\t")
+# writerow는 리스트를 사용하여 작성 가능
+writer.writerow(title)
 
 for page in range(1, 5):
     res = requests.get(url + str(page))
